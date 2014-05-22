@@ -14,4 +14,4 @@ If you have Node & Grunt installed, you can run `npm i` inside this project to g
 
 **`grunt copy`** (also the default `grunt`) moves the files into place.
 
-**`grunt watch`** monitors config/ & bin/ for changes & then runs `copy`.
+**`grunt watch`** monitors inc/, .bashrc, & .bash_profile for changes & then runs `copy`.
