@@ -9,15 +9,9 @@ module.exports = function(grunt) {
     copy: {
             main: {
                 files: [
-                    // copy all the dot files but not sudoers-linux
                     {
                         expand: true,
-                        src: ['inc/*'],
-                        dest: path.join(process.env.HOME, '.inc')
-                    },
-                    {
-                        expand: true,
-                        src: ['.bashrc', '.bash_profile'],
+                        src: ['.bashrc', '.bash_profile', 'inc/*'],
                         dest: process.env.HOME
                     }
                 ]
