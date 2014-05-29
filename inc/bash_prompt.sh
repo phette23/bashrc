@@ -43,13 +43,15 @@ export WHITE
 export BOLD
 export RESET
 
-parse_git_dirty () {
-	[[ $(git status 2> /dev/null | tail -n1) != *"working directory clean"* ]] && echo "*"
-}
-
 parse_git_branch () {
-	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1$(parse_git_dirty)/"
+	local branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+	if [ -n "${branch}" ]; then
+		[ "${branch}" == "HEAD" ] && local branch=$(git rev-parse --short HEAD 2>/dev/null)
+		local status=$(git status --porcelain 2>/dev/null)
+		echo -n " on ${PURPLE}${BOLD}${branch}"
+		[ -n "${status}" ] && echo -n "*"
+	fi
 }
 
-export PS1="\[${BOLD}${MAGENTA}\]\u \[${RESET}\]at \[${BOLD}${ORANGE}\]\h \[${RESET}\]in \[${BOLD}${GREEN}\]\w\[${RESET}\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[${PURPLE}\]\$(parse_git_branch)\[${BOLD}${PURPLE}\]\n¿ \[${RESET}\]"
+export PS1="\[${BOLD}${MAGENTA}\]\u \[${RESET}\]at \[${BOLD}${ORANGE}\]\h \[${RESET}\]in \[${BOLD}${GREEN}\]\w\[${RESET}\]\$(parse_git_branch)\n¿ \[${RESET}\]"
 export PS2="\[${ORANGE}\]→ \[${RESET}\]"
