@@ -11,7 +11,13 @@ module.exports = function(grunt) {
                 files: [
                     {
                         expand: true,
-                        src: ['.bashrc', '.bash_profile', 'inc/*'],
+                        flatten: true,
+                        src: ['inc/*'],
+                        dest: path.join(process.env.HOME, '.inc')
+                    },
+                    {
+                        expand: true,
+                        src: ['.bashrc', '.bash_profile'],
                         dest: process.env.HOME
                     }
                 ]
