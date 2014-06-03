@@ -53,5 +53,5 @@ parse_git_branch () {
 	fi
 }
 
-export PS1="\[${BOLD}${MAGENTA}\]\u \[${RESET}\]at \[${BOLD}${ORANGE}\]\h \[${RESET}\]in \[${BOLD}${GREEN}\]\w\[${RESET}\]\$(parse_git_branch)\n¿ \[${RESET}\]"
+export PS1="\[${BOLD}${MAGENTA}\]\u \[${RESET}\]at \[${BOLD}${ORANGE}\]\h \[${RESET}\]in \[${BOLD}${GREEN}\]\w\[${RESET}\]\$(parse_git_branch)\[${RESET}${PURPLE}\]\n¿ \[${RESET}\]"
 export PS2="\[${ORANGE}\]→ \[${RESET}\]"
