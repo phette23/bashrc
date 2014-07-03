@@ -1,5 +1,5 @@
 # Linux version of update command
-alias update='npm update npm -g; npm update -g; sudo gem update; sudo apt-get update -qq; sudo apt-get upgrade -y;'
+alias update='npm update -g; sudo gem update; sudo apt-get update -qq && sudo apt-get upgrade -y;'
 
 # Linux version of emptytrash
 alias emptytrash='rm -rf ~/.local/share/Trash/files/*'
