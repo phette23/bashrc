@@ -34,6 +34,11 @@ dataurl () {
 	echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')"
 }
 
+# Simple (& quiet!) utility to check if a command exists
+exists () {
+    command -v "$1" &>/dev/null
+}
+
 # Start a Python HTTP server from a directory, optionally specifying the port
 server () {
 	local port="${1:-8000}"

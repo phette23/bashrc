@@ -1,5 +1,6 @@
 # load all the other shell customizations
-for file in ~/.inc/{path,bash_prompt,completion,exports,aliases,functions}.sh; do
+# import for path & functions to go first, order of rest doesn't matter
+for file in ~/.inc/{path,functions,aliases,bash_prompt,completion,exports}.sh; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
@@ -28,6 +29,4 @@ done
 [ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh && nvm use default > /dev/null
 
 # initialize rbenv
-if command -v "rbenv" &> /dev/null 2>&1; then
-    eval "$(rbenv init -)"
-fi
+exists rbenv && eval "$(rbenv init -)"

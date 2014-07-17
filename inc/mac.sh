@@ -1,11 +1,8 @@
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall
 
-# Check if brew is defined, run Homebrew-specific commands
-if command -v "brew" &> /dev/null 2>&1; then
-    # Z from Homebrew
-    source $(brew --prefix)/etc/profile.d/z.sh
-fi
+# source Z
+exists brew && source $(brew --prefix)/etc/profile.d/z.sh
 
 # Show current dir name (not full path) in iTerm tab title
 # but only if PROMPT_COMMAND doesn't already do so
