@@ -26,7 +26,7 @@ for option in autocd globstar; do
 done
 
 # load Node Version Manager
-[ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh && nvm use default > /dev/null
+exists brew && source $(brew --prefix nvm)/nvm.sh && nvm use default > /dev/null
 
 # initialize rbenv
 exists rbenv && eval "$(rbenv init -)"
