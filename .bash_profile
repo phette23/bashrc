@@ -25,8 +25,5 @@ for option in autocd globstar; do
 	shopt -s "$option" 2> /dev/null
 done
 
-# load Node Version Manager
-exists brew && source $(brew --prefix nvm)/nvm.sh && nvm use default > /dev/null
-
 # initialize rbenv
 exists rbenv && eval "$(rbenv init -)"
