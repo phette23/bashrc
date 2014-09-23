@@ -49,10 +49,10 @@ alias sudo='sudo '
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
 # OS X has no `md5sum`, so use `md5` as a fallback
-exists md5sum || alias md5sum="md5"
+alias md5sum="md5"
 
 # OS X has no `sha1sum`, so use `shasum` as a fallback
-exists sha1sum || alias sha1sum="shasum"
+alias sha1sum="shasum"
 
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
@@ -73,4 +73,4 @@ for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
 done
 
 # Make Grunt print stack traces by default
-exists grunt && alias grunt="grunt --stack"
+alias grunt="grunt --stack"
