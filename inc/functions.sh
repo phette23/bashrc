@@ -45,6 +45,19 @@ mkd () {
 	mkdir -p "$@" && cd "$@"
 }
 
+npmgup () {
+    set -o errexit
+    set -o xtrace
+
+    for package in $(npm -g outdated --parseable --depth=0 | cut -d: -f2)
+    do
+        npm -g install "$package"
+    done
+
+    set +o xtrace
+    set +o errexit
+}
+
 # `o` with no arguments opens current directory, otherwise opens the given
 # location
 o () {
