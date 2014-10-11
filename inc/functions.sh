@@ -124,6 +124,32 @@ tre () {
     tree -aC -I '.git|node_modules|bower_components|.sass-cache' --dirsfirst "$@" | less -FRNX
 }
 
+# update git repos in sub-directories
+uprepos () {
+    # loop over dirs
+    for dir in */; do
+        # magical replacement magic removes final slash
+        cd "${dir%*/}"
+        git status 2&>/dev/null
+
+        # we in a git repo?
+        if [ $? -eq 0 ]; then
+            git remote | grep origin 2&>/dev/null
+
+            # is there a remote named origin?
+            if [ $? -eq 0 ]; then
+                echo "Updating ${dir%*/}…"
+                # be safe, fast-forward only pulls
+                git pull --ff-only origin
+            fi
+        fi
+
+        # .. wouldn't work with symlinked subdirs
+        # also bash echoes the dir you move to, silence that
+        cd - >/dev/null
+    done
+}
+
 # `v` with no arguments opens the current directory in Vim, otherwise opens the
 # given location
 v () {
