@@ -27,6 +27,3 @@ if [ -n "$SSH_CLIENT" ]; then
 else
     export PS1="\[\e]0;\$(pwd | tr '/' '\n' | tail -n1)\a\]$PS1"
 fi
-
-# disable trackpad while typing in Openbox window manager
-[[ ${DESKTOP_SESSION} == "openbox" ]] && synclient MaxTapTime=0
