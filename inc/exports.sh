@@ -4,6 +4,9 @@
 
 export EDITOR="vim"
 
+# Always enable colored `grep` output
+export GREP_OPTIONS="--color=auto"
+
 # Larger bash history (allow 32³ entries; default is 500)
 export HISTSIZE=32768
 export HISTFILESIZE=$HISTSIZE
@@ -20,6 +23,3 @@ export LESS_TERMCAP_md="$ORANGE"
 
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X"
-
-# Always enable colored `grep` output
-export GREP_OPTIONS="--color=auto"
