@@ -11,6 +11,10 @@ if [ $ITERM_SESSION_ID ] && [ ! "$(echo $PROMPT_COMMAND | egrep 'echo -ne "\\033
   export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"; ':"$PROMPT_COMMAND";
 fi
 
+# work around XCode clang dying on unrecognized flags
+# helps when installing Python & Ruby packages with native extensions
+export ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future
+
 # OS X Aliases
 
 # use iTerm-Tmux integration if we're in iTerm
