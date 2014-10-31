@@ -27,3 +27,6 @@ if [ -n "$SSH_CLIENT" ]; then
 else
     export PS1="\[\e]0;\$(pwd | tr '/' '\n' | tail -n1)\a\]$PS1"
 fi
+
+# fix `yo doctor` warnings related to NODE_PATH
+export NODE_PATH=${NODE_PATH}:${HOME}/npm/lib/node_modules
