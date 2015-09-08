@@ -9,8 +9,9 @@ alias dl="cd ~/Downloads"
 alias code="cd ~/code"
 
 # Misc common commands
-alias b="brew"
-alias cx="chmod +x"
+alias b='brew'
+alias cx='chmod +x'
+alias dt='date "+%Y-%m-%d"'
 alias pgl='pgrep -lf'
 alias rf='rm -rf'
 alias g="git"
