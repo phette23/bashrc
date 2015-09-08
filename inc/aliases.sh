@@ -14,13 +14,10 @@ alias cx='chmod +x'
 alias dt='date "+%Y-%m-%d"'
 alias pgl='pgrep -lf'
 alias rf='rm -rf'
-alias g="git"
-alias gs="git status -sb"
+alias g='git'
+alias gs='git status -sb'
 # list only global NPM packages
-# broken currently, see https://github.com/npm/npm/pull/4179
-alias npmg="npm ls -g --depth=0 2>/dev/null"
-# open sublime-project in current dir if there is one
-alias sp="[ -f *.sublime-project ] && s *.sublime-project"
+alias npmg='npm ls -g --depth=0 2>/dev/null'
 
 # ls aliases
 # Detect which `ls` flavor is in use
