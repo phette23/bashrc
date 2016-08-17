@@ -27,3 +27,5 @@ done
 
 # initialize rbenv
 exists rbenv && eval "$(rbenv init -)"
+# initialize NVM
+[ -f ~/.nvm/nvm.sh ] && source ~/.nvm/nvm.sh
