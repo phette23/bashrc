@@ -1,5 +1,0 @@
-iTunes/iTunes Media/Downloads/
-iTunes/iTunes Media/Mobile Applications/
-iTunes/iTunes Media/Podcasts/
-iTunes/Album Artwork/
-.DS_Store
