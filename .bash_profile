@@ -28,4 +28,4 @@ done
 # initialize rbenv
 exists rbenv && eval "$(rbenv init -)"
 # initialize NVM
-[ -f ~/.nvm/nvm.sh ] && source ~/.nvm/nvm.sh
+[ -d ~/.nvm ] && export NVM_DIR="$HOME/.nvm" && source /usr/local/opt/nvm/nvm.sh
