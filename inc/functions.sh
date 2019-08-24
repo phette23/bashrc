@@ -85,6 +85,11 @@ phpserver () {
     php -S "${ip}:${port}"
 }
 
+# upgrade pip packages in the current environment
+pipup () {
+    pip list --outdated --format=freeze | cut -d = -f 1 | xargs -n1 pip install -U
+}
+
 # `s` with no arguments opens the current directory in Sublime Text, otherwise
 # opens the given location
 s () {
