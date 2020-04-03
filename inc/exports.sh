@@ -4,9 +4,6 @@
 
 export EDITOR="vim"
 
-# Always enable colored `grep` output
-export GREP_OPTIONS="--color=auto"
-
 # Larger bash history (allow 32³ entries; default is 500)
 export HISTSIZE=32768
 export HISTFILESIZE=$HISTSIZE
