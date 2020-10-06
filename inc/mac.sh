@@ -2,7 +2,7 @@
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall
 
 # source Z
-exists brew && source $(brew --prefix)/etc/profile.d/z.sh
+exists brew && [ -f $(brew --prefix)/etc/profile.d/z.sh ] && source $(brew --prefix)/etc/profile.d/z.sh
 
 # Show current dir name (not full path) in iTerm tab title
 # but only if PROMPT_COMMAND doesn't already do so
