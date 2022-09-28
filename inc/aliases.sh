@@ -18,6 +18,7 @@ alias g='git'
 alias gs='git status -sb'
 # list only global NPM packages
 alias npmg='npm ls -g --depth=0 2>/dev/null'
+alias cl='wc -l'
 
 # ls aliases
 # Detect which `ls` flavor is in use
