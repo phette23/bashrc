@@ -2,12 +2,12 @@
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall
 
 # source Z
-exists brew && [ -f $(brew --prefix)/etc/profile.d/z.sh ] && source $(brew --prefix)/etc/profile.d/z.sh
+exists brew && [ -f "$(brew --prefix)"/etc/profile.d/z.sh ] && source "$(brew --prefix)"/etc/profile.d/z.sh
 
 # Show current dir name (not full path) in iTerm tab title
 # but only if PROMPT_COMMAND doesn't already do so
 # prevents login-shell-with-a-login-shell problems (e.g. tmux)
-if [ $ITERM_SESSION_ID ] && [ ! "$(echo $PROMPT_COMMAND | egrep 'echo -ne "\\033\];')" ]; then
+if [ "$ITERM_SESSION_ID" ] && ! echo "$PROMPT_COMMAND" | grep -qE 'echo -ne "\\033\];'; then
   export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"; ':"$PROMPT_COMMAND";
 fi
 
@@ -19,7 +19,7 @@ export ARCHFLAGS=-Wno-error=unused-command-line-argument-hard-error-in-future
 
 # use iTerm-Tmux integration if we're in iTerm
 # see: https://code.google.com/p/iterm2/wiki/TmuxIntegration
-if [ $ITERM_SESSION_ID ]; then
+if [ "$ITERM_SESSION_ID" ]; then
     alias tm='tmux -CC'
 fi
 
