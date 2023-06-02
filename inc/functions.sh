@@ -164,5 +164,3 @@ v () {
     vim "$@"
   fi
 }
-
-source ~/.inc/cheat-sheets.sh
