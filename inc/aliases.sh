@@ -1,4 +1,5 @@
- # Easier navigation: .., ..., ...., ....., ~ and -
+# shellcheck disable=SC2139
+# Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."

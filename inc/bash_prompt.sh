@@ -44,10 +44,12 @@ export BOLD
 export RESET
 
 parse_git_branch () {
-	local branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+	local branch
+	local status
+	branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
 	if [ -n "${branch}" ]; then
-		[ "${branch}" == "HEAD" ] && local branch=$(git rev-parse --short HEAD 2>/dev/null)
-		local status=$(git status --porcelain 2>/dev/null)
+		[ "${branch}" == "HEAD" ] && branch=$(git rev-parse --short HEAD 2>/dev/null)
+		status=$(git status --porcelain 2>/dev/null)
 		echo -n " on ${PURPLE}${BOLD}${branch}"
 		[ -n "${status}" ] && echo -n "*"
 	fi
