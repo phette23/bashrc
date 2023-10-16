@@ -1,8 +1,13 @@
-# 1) To make Homebrew work, put it at the front of the path
-# so brew packages are used over Mac OS defaults (e.g. git)
-# 2) global NPM packages (e.g. Grunt, Yeoman)
-export PATH="/usr/local/bin:${HOME}/bin:${PATH}"
+# add dir to path if it exists and isn't already there
+pathadd() {
+    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+        PATH="$1${PATH:+":$PATH"}"
+    fi
+}
+pathadd /usr/local/bin
+pathadd /opt/Homebrew/bin
+pathadd "$HOME"/bin
 # Add Gnu utilities if we have them in Homebrew
 if command -v brew &>/dev/null; then
-    export PATH="$(brew --prefix coreutils)/libexec/gnubin:${PATH}"
+    pathadd "$(brew --prefix coreutils)/libexec/gnubin:${PATH}"
 fi
