@@ -6,7 +6,7 @@ pathadd() {
     fi
 }
 pathadd /usr/local/bin
-pathadd /opt/Homebrew/bin
+pathadd /opt/homebrew/bin
 pathadd "$HOME"/bin
 # Add Gnu utilities if we have them in Homebrew
 if command -v brew &>/dev/null; then
