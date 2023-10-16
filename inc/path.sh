@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # add dir to path if it exists and isn't already there
 pathadd() {
     if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
